@@ -1,0 +1,27 @@
+ pm2 start app.js
+
+
+ influx
+ show databases;
+ use example;
+ insert weather,location=bangalore temperature=96;
+ insert weather,location=bangalore temperature=97;
+
+ show measurements;
+ select * from weather;
+
+
+sequelize - working
+root@sudks-G3-3579:/home/sudks/Projects/EMR/Development/software/code/UI/emr-webapp-master/emr-webapp-master# sequelize-auto -o "./src/dbmodels/sequelizeEMRModels" -d openemr -h localhost -u root -x root -e mysql
+
+For some of the tables - primaryKey: true needs to be set -- then everything will work as expected
+For now commented them
+
+
+curl -X POST -H "Content-Type: application/json"     -d '{"password": "linuxize", "email": "linuxize@example.com", "role":"user"}'     http://127.0.0.1:7117/signupnew -H "x-access-token:  "
+
+
+
+ALTER TABLE `users_secure`
+CHANGE `id` `id` bigint(20) NOT NULL AUTO_INCREMENT FIRST,
+CHANGE `last_update` `last_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE CURRENT_TIMESTAMP AFTER `salt`;
